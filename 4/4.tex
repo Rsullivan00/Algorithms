@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{multicol}
+
+\begin{document}
+\noindent   Rick Sullivan   \\
+            Professor Tran  \\
+            Algorithms-COEN 179 \\
+            15 May 2013      \\
+                            \\
+\centerline{Homework \#4}   \\
+
+\begin{enumerate}
+    \item
+        Vertex 0: (0,9) \\
+        Vertex 1: (1,6) \\
+        Vertex 2: (2,5) \\
+        Vertex 3: (3,4) \\
+        Vertex 4: (7,8) \\
+        \\ \\ \\ \\ \\ \\ \\ \\
+    \item
+        \begin{multicols*}{2}
+        TC with Warshall's Algorithm    \\
+        k = 0   \\
+        \begin{tabular}{c || c | c | c | c | c}
+            & 0 & 1 & 2 & 3 & 4    \\ \hline \hline
+           0 & 1 & 1 & 0 & 0 & 1    \\ \hline 
+           1 & 0 & 1 & 1 & 1 & 0    \\ \hline 
+           2 & 0 & 0 & 1 & 1 & 0    \\ \hline 
+           3 & 0 & 1 & 0 & 1 & 0    \\ \hline 
+           4 & 0 & 0 & 0 & 1 & 1    \\ \hline 
+        \end{tabular}
+        \\ \\ \\
+        k = 1   \\
+        \begin{tabular}{c || c | c | c | c | c}
+            & 0 & 1 & 2 & 3 & 4    \\ \hline \hline
+           0 & 1 & 1 & 1 & 1 & 1    \\ \hline 
+           1 & 0 & 1 & 1 & 1 & 0    \\ \hline 
+           2 & 0 & 0 & 1 & 1 & 0    \\ \hline 
+           3 & 0 & 1 & 1 & 1 & 0    \\ \hline 
+           4 & 0 & 0 & 0 & 1 & 1    \\ \hline 
+        \end{tabular}
+        \\ \\ \\
+        k = 2   \\
+        \begin{tabular}{c || c | c | c | c | c}
+            & 0 & 1 & 2 & 3 & 4    \\ \hline \hline
+           0 & 1 & 1 & 1 & 1 & 1    \\ \hline 
+           1 & 0 & 1 & 1 & 1 & 0    \\ \hline 
+           2 & 0 & 0 & 1 & 1 & 0    \\ \hline 
+           3 & 0 & 1 & 1 & 1 & 0    \\ \hline 
+           4 & 0 & 0 & 0 & 1 & 1    \\ \hline 
+        \end{tabular}
+        \vfill
+        \columnbreak
+        k = 3   \\
+        \begin{tabular}{c || c | c | c | c | c}
+            & 0 & 1 & 2 & 3 & 4    \\ \hline \hline
+           0 & 1 & 1 & 1 & 1 & 1    \\ \hline 
+           1 & 0 & 1 & 1 & 1 & 0    \\ \hline 
+           2 & 0 & 1 & 1 & 1 & 0    \\ \hline 
+           3 & 0 & 1 & 1 & 1 & 0    \\ \hline 
+           4 & 0 & 1 & 1 & 1 & 1    \\ \hline 
+        \end{tabular}
+        \\ \\ \\
+        k = 4   \\
+        \textbf{Final transitive closure: }  \\
+        \begin{tabular}{c || c | c | c | c | c}
+            & 0 & 1 & 2 & 3 & 4    \\ \hline \hline
+           0 & 1 & 1 & 1 & 1 & 1    \\ \hline 
+           1 & 0 & 1 & 1 & 1 & 0    \\ \hline 
+           2 & 0 & 1 & 1 & 1 & 0    \\ \hline 
+           3 & 0 & 1 & 1 & 1 & 0    \\ \hline 
+           4 & 0 & 1 & 1 & 1 & 1    \\ \hline 
+        \end{tabular}
+        \end{multicols*}
+
+    \item
+        Maximum number of topological sorts occurs when we have no restrictions (no edges).
+        \\
+        A topological sort consists of a list of vertices.  \\
+        Therefore we have n = 5 spots, with 5 choices for the first spot, 4 for the second, etc. \\
+        So we have 5 * 4 * 3 * 2 * 1 choices = \textbf{120 sort orders}. \\
+\end{enumerate}
+\end{document}

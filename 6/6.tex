@@ -1,0 +1,251 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{qtree}
+
+\renewcommand{\labelenumii}{\roman{enumii}) }
+\begin{document}
+\noindent   Rick Sullivan \\
+            Professor Tran  \\
+            Algorithms  \\
+            31 May 2013 \\
+            \\
+\centerline{Homework \#6}   \\
+\begin{enumerate}
+    \item\begin{multicols}{2}\begin{align*}
+            String &= aabaabaabaab  \\
+            z &= \                 \\
+            \\
+            String &= a\underline{\textbf{a}}baabaabaab  \\
+            z &= \ 1                \\
+            \\
+            String &= aa\textbf{b}aabaabaab  \\
+            z &= \ 10                \\
+            \\
+            String &= aab\underline{\textbf{a}abaabaab}  \\
+            z &= \ 109                \\
+            \\
+            \text{Now we can}&\text{ use previously computed values for the rest.} \\
+            String &= aab\underline{a\textbf{a}baabaab}  \\
+            z &= \ 1091                \\
+            \\
+            String &= aab\underline{aa\textbf{b}aabaab}  \\
+            z &= \ 10910              \\
+            \\
+            String &= aab\underline{aab\textbf{a}abaab}  \\
+            z &= \ 109106              \\
+            \\
+            String &= aab\underline{aaba\textbf{a}baab}  \\
+            z &= \ 1091061             \\
+            \\
+            String &= aab\underline{aabaa\textbf{b}aab}  \\
+            z &= \ 10910610             \\
+            \\
+            String &= aab\underline{aabaab\textbf{a}ab}  \\
+            z &= \ 109106103             \\
+            \\
+            String &= aab\underline{aabaaba\textbf{a}b}  \\
+            z &= \ 1091061031             \\
+            \\
+            String &= aab\underline{aabaabaa\textbf{b}}  \\
+            z &= \ 10910610310             \\
+            \\
+         \end{align*}
+         \end{multicols}
+     \pagebreak
+     \item
+     \begin{enumerate}
+     \qtreecenterfalse
+        \item s:8 h:3 e:7 \_\_:5 l:4 a:2 b:1 y:1 t:1 o:1 r:1   \\
+              Sorted: b:1 y:1 t:1 o:1 r:1 a:2 h:4 l:4 \_\_:5 e:7 s:8
+        \item Left branches represent 0's, right branches represent 1's.\\      
+              \Tree [.2 b:1 y:1 ] \hskip 0.2in t:1 o:1 r:1 a:2 h:4 l:4 \_\_:5 e:7 s:8   \\
+        \item \Tree [.2 b:1 y:1 ] \hskip 0.2in \Tree [.2 t:1 o:1 ] 
+              \hskip 0.2in r:1 a:2 h:4 l:4 \_\_:5 e:7 s:8 \\ 
+        \item \Tree [.3 [.2 b:1 y:1 ] r:1 ] \hskip 0.2in \Tree [.2 t:1 o:1 ] 
+              \hskip 0.2in a:2 h:4 l:4 \_\_:5 e:7 s:8 \\ 
+        \item \Tree [.3 [.2 b:1 y:1 ] r:1 ] \hskip 0.2in \Tree [.4 [.2 t:1 o:1 ] a:2 ]
+              \hskip 0.2in h:4 l:4 \_\_:5 e:7 s:8 \\ 
+        \item \Tree [.7 [.3 [.2 b:1 y:1 ] r:1 ] h:4 ] \hskip 0.2in \Tree [.4 [.2 t:1 o:1 ] a:2 ]
+              \hskip 0.2in l:4 \_\_:5 e:7 s:8 \\ 
+        \item \Tree [.7 [.3 [.2 b:1 y:1 ] r:1 ] h:4 ] \hskip 0.2in 
+              \Tree [.8 [.4 [.2 t:1 o:1 ] a:2 ] l:4 ]
+              \hskip 0.2in \_\_:5 e:7 s:8 \\ 
+        \item \Tree [.12 [.7 [.3 [.2 b:1 y:1 ] r:1 ] h:4 ] \_\_:5 ] \hskip 0.2in 
+              \Tree [.8 [.4 [.2 t:1 o:1 ] a:2 ] l:4 ]
+              \hskip 0.2in e:7 s:8 \\ 
+        \item \Tree [.12 [.7 [.3 [.2 b:1 y:1 ] r:1 ] h:4 ] \_\_:5 ] \hskip 0.2in 
+              \Tree [.15 [.8 [.4 [.2 t:1 o:1 ] a:2 ] l:4 ] e:7 ] 
+              \hskip 0.2in s:8    \\
+        \item \Tree [.20 [.12 [.7 [.3 [.2 b:1 y:1 ] r:1 ] h:4 ] \_\_:5 ] s:8 ] \hskip 0.2in 
+              \Tree [.15 [.8 [.4 [.2 t:1 o:1 ] a:2 ] l:4 ] e:7 ] \\
+        \item \Tree [.35 [.20 [.12 [.7 [.3 [.2 b:1 y:1 ] r:1 ] h:4 ] \_\_:5 ] s:8 ] 
+                    [.15 [.8 [.4 [.2 t:1 o:1 ] a:2 ] l:4 ] e:7 ] ] \\
+        \item \begin{align*}
+              b &= 000000    \\
+              y &= 000001    \\
+              r &= 00001     \\
+              h &= 0001      \\
+              \_\_ &= 001   \\
+              s &= 01       \\
+              e &= 11       \\
+              l &= 101      \\
+              a &= 1001     \\
+              t &= 10000    \\
+              o &= 10001    \\
+              \end{align*}
+     \end{enumerate}
+
+     \item
+        \begin{multicols}{2}
+        \begin{enumerate}
+            \item
+                Initialize dictionary 0x00 - 0x08F \\
+                (first 128 entries)
+            \item
+                \underline{Start:0}  \\
+                Longest entry in dict: 's' 0x73 \\
+                Output: 0x73    \\
+                Add to dictionary: 'sh' in spot 0x80    
+              \item
+                \underline{Start:1}  \\
+                Longest entry in dict: 'h' 0x68 \\
+                Output: 0x68    \\
+                Add to dictionary: 'he' in spot 0x81    
+            \item
+                \underline{Start:2}  \\
+                Longest entry in dict: 'e' 0x65 \\
+                Output: 0x65    \\
+                Add to dictionary: 'e\_' in spot 0x82    
+             \item
+                \underline{Start:3}  \\
+                Longest entry in dict: '\_' 0x20 \\
+                Output: 0x20    \\
+                Add to dictionary: '\_s' in spot 0x83    
+             \item
+                \underline{Start:4}  \\
+                Longest entry in dict: 's' 0x73 \\
+                Output: 0x73    \\
+                Add to dictionary: 'se' in spot 0x84    
+             \item
+                \underline{Start:5}  \\
+                Longest entry in dict: 'e' 0x65 \\
+                Output: 0x65    \\
+                Add to dictionary: 'el' in spot 0x85    
+             \item
+                \underline{Start:6}  \\
+                Longest entry in dict: 'l' 0x6C \\
+                Output: 0x6C    \\
+                Add to dictionary: 'll' in spot 0x86
+             \item
+                \underline{Start:7}  \\
+                Longest entry in dict: 'l' 0x6C \\
+                Output: 0x6C    \\
+                Add to dictionary: 'ls' in spot 0x87    
+             \item
+                \underline{Start:8}  \\
+                Longest entry in dict: 's' 0x73 \\
+                Output: 0x73    \\
+                Add to dictionary: 's\_' in spot 0x88    
+             \item
+                \underline{Start:9}  \\
+                Longest entry in dict: '\_s' 0x83 \\
+                Output: 0x83    \\
+                Add to dictionary: '\_se' in spot 0x89    
+             \item
+                \underline{Start:11}  \\
+                Longest entry in dict: 'e' 0x65 \\
+                Output: 0x65    \\
+                Add to dictionary: 'ea' in spot 0x8A    
+             \item
+                \underline{Start:12}  \\
+                Longest entry in dict: 'a' 0x61 \\
+                Output: 0x61    \\
+                Add to dictionary: 'as' in spot 0x8B    
+             \item
+                \underline{Start:13}  \\
+                Longest entry in dict: 'sh' 0x80 \\
+                Output: 0x80    \\
+                Add to dictionary: 'she' in spot 0x8C    
+            \item
+                \underline{Start:15}  \\
+                Longest entry in dict: 'el' 0x85 \\
+                Output: 0x85    \\
+                Add to dictionary: 'ell' in spot 0x8D    
+            \item
+                \underline{Start:17}  \\
+                Longest entry in dict: 'ls' 0x87 \\
+                Output: 0x87    \\
+                Add to dictionary: 'ls\_' in spot 0x8E    
+            \item
+                \underline{Start:19}  \\
+                Longest entry in dict: '\_' 0x20 \\
+                Output: 0x20    \\
+                Add to dictionary: '\_b' in spot 0x8F    
+            \item
+                \underline{Start:20}  \\
+                Longest entry in dict: 'b' 0x62 \\
+                Output: 0x62    \\
+                Add to dictionary: 'by' in spot 0x90
+            \item
+                \underline{Start:21}  \\
+                Longest entry in dict: 'y' 0x79 \\
+                Output: 0x79    \\
+                Add to dictionary: 'y\_' in spot 0x91    
+            \item
+                \underline{Start:22}  \\
+                Longest entry in dict: '\_' 0x20 \\
+                Output: 0x20    \\
+                Add to dictionary: '\_t' in spot 0x92
+            \item
+                \underline{Start:23}  \\
+                Longest entry in dict: 't' 0x74 \\
+                Output: 0x74    \\
+                Add to dictionary: 'th' in spot 0x93
+            \item
+                \underline{Start:24}  \\
+                Longest entry in dict: 'he' 0x81 \\
+                Output: 0x81    \\
+                Add to dictionary: 'he\_' in spot 0x94
+            \item
+                \underline{Start:26}  \\
+                Longest entry in dict: '\_se' 0x89 \\
+                Output: 0x89    \\
+                Add to dictionary: '\_sea' in spot 0x95
+            \item
+                \underline{Start:29}  \\
+                Longest entry in dict: 'as' 0x8B \\
+                Output: 0x8B    \\
+                Add to dictionary: 'ash' in spot 0x96
+            \item
+                \underline{Start:31}  \\
+                Longest entry in dict: 'h' 0x68 \\
+                Output: 0x68    \\
+                Add to dictionary: 'ho' in spot 0x97
+            \item
+                \underline{Start:32}  \\
+                Longest entry in dict: 'o' 0x6F \\
+                Output: 0x6F    \\
+                Add to dictionary: 'or' in spot 0x98
+            \item
+                \underline{Start:33}  \\
+                Longest entry in dict: 'r' 0x72 \\
+                Output: 0x72    \\
+                Add to dictionary: 're' in spot 0x99
+            \item
+                \underline{Start:34}  \\
+                Longest entry in dict: 'e' 0x65 \\
+                Output: 0x65    \\
+                Add to dictionary: 'eETX' in spot 0x9A
+            \item
+                \underline{Start:35}  \\
+                Longest entry in dict: 'ETX' 0x03 \\
+                Output: 0x03    \\
+                Done.
+         \end{enumerate}
+         \end{multicols}
+         Final output is: 73 68 65 20 73 65 6C 6C 73 83 65 61 80 85 87 20 62 79 20 74 81 89 8B 68 6F 72 65 03
+\end{enumerate}
+\end{document}

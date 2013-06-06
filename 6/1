@@ -1,0 +1,82 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{qtree}
+
+\begin{document}
+\noindent   Rick Sullivan \\
+            Professor Tran  \\
+            Algorithms  \\
+            31 May 2013 \\
+            \\
+\centerline{Homework \#6}   \\
+\begin{enumerate}
+    \item\begin{multicols}{2}\begin{align*}
+            String &= aabaabaabaab  \\
+            z &= \                 \\
+            \\
+            String &= a\underline{\textbf{a}}baabaabaab  \\
+            z &= \ 1                \\
+            \\
+            String &= aa\textbf{b}aabaabaab  \\
+            z &= \ 10                \\
+            \\
+            String &= aab\underline{\textbf{a}abaabaab}  \\
+            z &= \ 109                \\
+            \\
+            \text{Now we can}&\text{ use previously computed values for the rest.} \\
+            String &= aab\underline{a\textbf{a}baabaab}  \\
+            z &= \ 1091                \\
+            \\
+            String &= aab\underline{aa\textbf{b}aabaab}  \\
+            z &= \ 10910              \\
+            \\
+            String &= aab\underline{aab\textbf{a}abaab}  \\
+            z &= \ 109106              \\
+            \\
+            String &= aab\underline{aaba\textbf{a}baab}  \\
+            z &= \ 1091061             \\
+            \\
+            String &= aab\underline{aabaa\textbf{b}aab}  \\
+            z &= \ 10910610             \\
+            \\
+            String &= aab\underline{aabaab\textbf{a}ab}  \\
+            z &= \ 109106103             \\
+            \\
+            String &= aab\underline{aabaaba\textbf{a}b}  \\
+            z &= \ 1091061031             \\
+            \\
+            String &= aab\underline{aabaabaa\textbf{b}}  \\
+            z &= \ 10910610310             \\
+            \\
+         \end{align*}
+         \end{multicols}
+     \pagebreak
+     \item
+     \begin{enumerate}
+     \qtreecenterfalse
+        \item s:8 h:3 e:7 l:4 a:2 b:1 y:1 t:1 o:1 r:1   \\
+              Sorted: b:1 y:1 t:1 o:1 r:1 a:2 h:3 l:4 e:7 s:8
+        \item Left branches represent 0's, right branches represent 1's.\\      
+              \Tree [.2 b:1 y:1 ] \hskip 0.2in t:1 o:1 r:1 a:2 h:3 l:4 e:7 s:8   \\
+        \item \Tree [.2 b:1 y:1 ] \hskip 0.2in \Tree [.2 t:1 o:1 ] 
+              \hskip 0.2in r:1 a:2 h:3 l:4 e:7 s:8 \\ 
+        \item \Tree [.3 [.2 b:1 y:1 ] r:1 ] \hskip 0.2in \Tree [.2 t:1 o:1 ] 
+              \hskip 0.2in a:2 h:3 l:4 e:7 s:8 \\ 
+        \item \Tree [.3 [.2 b:1 y:1 ] r:1 ] \hskip 0.2in \Tree [.4 [.2 t:1 o:1 ] a:2 ]
+              \hskip 0.2in h:3 l:4 e:7 s:8 \\ 
+        \item \Tree [.6 [.3 [.2 b:1 y:1 ] r:1 ] h:3 ] \hskip 0.2in \Tree [.4 [.2 t:1 o:1 ] a:2 ]
+              \hskip 0.2in l:4 e:7 s:8 \\ 
+        \item \Tree [.6 [.3 [.2 b:1 y:1 ] r:1 ] h:3 ] \hskip 0.2in 
+              \Tree [.8 [.4 [.2 t:1 o:1 ] a:2 ] l:4 ]
+              \hskip 0.2in e:7 s:8 \\ 
+        \item \Tree [.13 [.6 [.3 [.2 b:1 y:1 ] r:1 ] h:3 ] e:7] \hskip 0.2in 
+              \Tree [.8 [.4 [.2 t:1 o:1 ] a:2 ] l:4 ]
+              \hskip 0.2in s:8 \\ 
+
+
+     \end{enumerate}
+\end{enumerate}
+\end{document}
